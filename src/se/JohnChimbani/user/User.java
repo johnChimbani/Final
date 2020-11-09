@@ -1,5 +1,7 @@
 package se.JohnChimbani.user;
 
+import se.JohnChimbani.Main;
+
 /**
  * Created by John Chimbani
  * Date: 2020-11-06
@@ -11,6 +13,8 @@ package se.JohnChimbani.user;
 public class User {
 
     private String userName;
+    int i;
+    String [] userNameList = new String[100];
 
     /**
      * Metod som är en getter för userName
@@ -35,9 +39,18 @@ public class User {
 
         if (user != null) {
             this.userName = user;
+            userNameList[i] = user;
         } else
 
             throw new NullPointerException();
+    }
+
+    public void removeCredentials(String removeUser) {
+        if (removeUser == null) {
+            System.out.println("Det finns inga användare att radera");
+        } else
+
+             this.userName = null;
     }
 
     /**

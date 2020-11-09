@@ -23,7 +23,8 @@ public class Main {
             System.out.println("\n 3. Visa användare");
             System.out.println("\n 4. Visa pass ");
             System.out.println("\n 5. Regler");
-            System.out.println("\n 6. Avsluta ");
+            System.out.println("\n 6. Radera användare");
+            System.out.println("\n 7. Avsluta");
             System.out.println("\n Välj vad du vill göra? ");
             input = console.nextInt();
             console.nextLine();
@@ -31,7 +32,7 @@ public class Main {
             switch (input) {
 
                 case 1:
-                    boolean h = true;
+
                     while (true) {
                         String newUser = showInputDialog(null, "Skriv ett användarnamn");
                         if (newUser == null)
@@ -39,6 +40,7 @@ public class Main {
                         User x = new User();
                         x.setCredentials(newUser);
                         users.add(newUser);
+
                     }
                     break;
 
@@ -81,9 +83,15 @@ public class Main {
                     System.out.println("\n 3. Bokade tider försvinner om inte passet startas inom 30 min");
                     break;
                 case 6:
+
+                    String remove = showInputDialog(null,"Vilken användare vill du ta bort?");
+
+
+                    break;
+                case 7:
                     break;
             }
-        } while (input != 6);
+        } while (input != 7);
 
     }
 }
