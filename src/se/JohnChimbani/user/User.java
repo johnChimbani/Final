@@ -28,7 +28,8 @@ public class User {
     /**
      * Metod som är en setter för userName
      *
-     * @param user variablen skickas in för att kolla vad användaren har matat in
+     * @param user
+     * variablen skickas in för att kolla vad användaren har matat in
      */
     public void setCredentials(String user) {
 
