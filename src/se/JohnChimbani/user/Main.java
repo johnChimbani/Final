@@ -26,7 +26,8 @@ public class Main {
             System.out.println("\n 4. Visa pass ");
             System.out.println("\n 5. Regler");
             System.out.println("\n 6. Radera användare");
-            System.out.println("\n 7. Avsluta");
+            System.out.println("\n 7. Vilken användare vill du söka?");
+            System.out.println("\n 8. Avsluta");
             System.out.println("\n Välj vad du vill göra? ");
             input = console.nextInt();
             console.nextLine();
@@ -99,14 +100,21 @@ public class Main {
                     if (away == null)
                         break;
                     else {
-                        User.remove(away);
+                        users.remove(away);
                     }
 
                 case 7:
-
+                    String find = showInputDialog(null, "Vilken användare vill du hitta?");
+                    if (users.contains(find)) {
+                        System.out.println(find + " finns i systemet");
+                    } else {
+                        System.out.println(find + " finns inte systemet");
+                    }
+                    break;
+                case 8:
                     break;
             }
-        } while (input != 7);
+        } while (input != 8);
 
     }
 
