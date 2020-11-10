@@ -8,15 +8,20 @@ import static javax.swing.JOptionPane.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static List<Date> pass = new ArrayList<>();
+    static Stack<String> users = new Stack<>();
 
+    /**
+     * menu metod som låter användaren interagera med programmet
+     */
+    public static void menu() {
         int input;
 
-        List<Date> pass = new ArrayList<>();
-        Stack<String> users = new Stack<>();
         Scanner console = new Scanner(System.in);
 
         do {
+
+
             System.out.println(" Välkommen till Brf Klintens Bokningssystem för tvättstugan");
             System.out.println("\n 1. Lägg till användare");
             System.out.println("\n 2. Boka pass");
@@ -34,6 +39,7 @@ public class Main {
                 case 1:
 
                     while (true) {
+
                         String newUser = showInputDialog(null, "Skriv ett användarnamn");
                         if (newUser == null)
                             break;
@@ -51,13 +57,21 @@ public class Main {
                         showMessageDialog(null, "Välj År/Mån/Dag/Startid");
                         Calendar yourCalendar = Calendar.getInstance();
                         String year = showInputDialog(null, " År(Exempelvis 2021)");
+                        if (year == null)
+                            System.exit(0);
                         int or = Integer.parseInt(year);
                         String month = showInputDialog(null, " Mån(Exempelvis 5 för Maj)");
+                        if (month == null)
+                            break;
                         int monad = Integer.parseInt(month);
                         monad -= 1;
                         String date = showInputDialog(null, " Datum(Exempelvis 4)");
+                        if (date == null)
+                            break;
                         int datum = Integer.parseInt(date);
                         String hour = showInputDialog(null, " Klockslag(Exempelvis 15 för 15:00)");
+                        if (hour == null)
+                            break;
                         int timme = Integer.parseInt(hour);
                         yourCalendar.set(or, monad, datum, timme, 0, 0);
                         pass.add(yourCalendar.getTime());
@@ -69,7 +83,7 @@ public class Main {
 
                     System.out.println("Användare");
                     for (String u : users)
-                        System.out.println("  " + u);
+                        System.out.println(" " + u);
                     break;
                 case 4:
                     System.out.println("Bokade pass");
@@ -84,14 +98,40 @@ public class Main {
                     break;
                 case 6:
 
-                    String remove = showInputDialog(null,"Vilken användare vill du ta bort?");
+                    String away = showInputDialog(null, "Vilken användare vill du ta bort?");
+                    if (away == null)
+                        break;
+                    else {
+                        remove(away);
+                    }
 
-
-                    break;
                 case 7:
+
                     break;
             }
         } while (input != 7);
 
+    }
+
+    public static void main(String[] args) {
+
+        menu();
+
+    }
+
+    /**
+     * Min metod som används för att ta bort användare
+     * @param user
+     * parametern user skickas in och användaren raderas om denne finns i listan
+     */
+    public static void remove(String user) {
+
+        if (users.empty()) {
+            System.out.println("Listan är tom");
+
+        } else {
+            users.remove(user);
+
+        }
     }
 }

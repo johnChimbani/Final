@@ -1,7 +1,5 @@
 package se.JohnChimbani.user;
 
-import se.JohnChimbani.Main;
-
 /**
  * Created by John Chimbani
  * Date: 2020-11-06
@@ -13,8 +11,6 @@ import se.JohnChimbani.Main;
 public class User {
 
     private String userName;
-    int i;
-    String [] userNameList = new String[100];
 
     /**
      * Metod som är en getter för userName
@@ -32,25 +28,15 @@ public class User {
     /**
      * Metod som är en setter för userName
      *
-     * @param user
-     * variablen skickas in för att kolla vad användaren har matat in
+     * @param user variablen skickas in för att kolla vad användaren har matat in
      */
     public void setCredentials(String user) {
 
         if (user != null) {
             this.userName = user;
-            userNameList[i] = user;
         } else
 
             throw new NullPointerException();
-    }
-
-    public void removeCredentials(String removeUser) {
-        if (removeUser == null) {
-            System.out.println("Det finns inga användare att radera");
-        } else
-
-             this.userName = null;
     }
 
     /**
