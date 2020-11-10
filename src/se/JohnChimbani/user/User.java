@@ -1,5 +1,6 @@
 package se.JohnChimbani.user;
 
+
 /**
  * Created by John Chimbani
  * Date: 2020-11-06
@@ -30,6 +31,8 @@ public class User {
      *
      * @param user variablen skickas in för att kolla vad användaren har matat in
      */
+
+
     public void setCredentials(String user) {
 
         if (user != null) {
@@ -37,6 +40,22 @@ public class User {
         } else
 
             throw new NullPointerException();
+    }
+
+    /**
+     * Min metod som används för att ta bort användare
+     *
+     * @param user parametern user skickas in och användaren raderas om denne finns i listan
+     */
+    public static void remove(String user) {
+
+        if (Main.users.empty()) {
+            System.out.println("Listan är tom");
+
+        } else {
+            Main.users.remove(user);
+        }
+
     }
 
     /**

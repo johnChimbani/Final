@@ -1,8 +1,6 @@
-package se.JohnChimbani;
+package se.JohnChimbani.user;
 
 import java.util.*;
-
-import se.JohnChimbani.user.User;
 
 import static javax.swing.JOptionPane.*;
 
@@ -20,7 +18,6 @@ public class Main {
         Scanner console = new Scanner(System.in);
 
         do {
-
 
             System.out.println(" Välkommen till Brf Klintens Bokningssystem för tvättstugan");
             System.out.println("\n 1. Lägg till användare");
@@ -102,7 +99,7 @@ public class Main {
                     if (away == null)
                         break;
                     else {
-                        remove(away);
+                        User.remove(away);
                     }
 
                 case 7:
@@ -117,21 +114,5 @@ public class Main {
 
         menu();
 
-    }
-
-    /**
-     * Min metod som används för att ta bort användare
-     * @param user
-     * parametern user skickas in och användaren raderas om denne finns i listan
-     */
-    public static void remove(String user) {
-
-        if (users.empty()) {
-            System.out.println("Listan är tom");
-
-        } else {
-            users.remove(user);
-
-        }
     }
 }
